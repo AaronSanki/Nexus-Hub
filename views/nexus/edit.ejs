@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <h1 class="mt-3">Edit Form</h1>
+    <form method="POST" action="/nexus/<%= post._id %>?_method=PUT" class="needs-validation mt-3 mb-3" encType="multipart/form-data">
+        <div>
+            <label for="nexus[title]" class="form-label">Title</label>
+            <input type="text" name="nexus[title]" placeholder="Enter Title" class="form-control" value="<%= post.title %>" required>
+        </div> 
+        <br><br>
+        <div>
+            <label for="nexus[description]" class="form-label">Description</label>
+            <textarea type="text" name="nexus[description]" class="form-control" required><%= post.description %></textarea></div>
+        <br><br>
+        <div>
+            <label for="nexus[image][url]" class="form-label">Image</label>
+            <input type="file" name="nexus[image][url]" placeholder="Upload new image" class="form-control">
+        </div>
+        <br><br>
+        <div class="price-country">
+            <div>
+                <label for="nexus[price]" class="form-label">Price</label>
+                <input type="number" name="nexus[price]" placeholder="Enter Price" class="form-control" value="<%= post.price %>">
+            </div>
+            <div style="width: 1000px;">
+                <label for="nexus[country]" class="form-label">Country</label>
+                <input type="text" name="nexus[country]" placeholder="Enter Country" class="form-control" value="<%= post.country %>">
+            </div>
+        </div>
+        <br><br>
+        <div class="price-country">
+            <div class="category">
+                <label for="nexus[category]" class="form-label">Category</label>
+                <div class="dropdown" name="nexus[category]" class="form-control">
+                    <button class="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false" syle="background-color: #202020 !important; color: azure !important;">
+                      select category
+                    </button>
+                    <ul class="dropdown-menu">
+                        <% const categories = ["Rooms", "Mountains", "Beach", "Resort", "Camping", "Hiking", "Farm", "Arctic", "Sailing"]; %>
+                        <% categories.forEach((category) => { %>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="nexus[category]" type="checkbox" value="<%= category %>" <% if(post.category.includes(category)){ %> checked <% } %>>
+                                    <label class="form-check-label" for="nexus[category]">
+                                        <%= category %>
+                                    </label>
+                                </div>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+            <div style="width: 1000px;">
+                <label for="nexus[location]" class="form-label">Location</label>
+                <input type="text" name="nexus[location]" placeholder="Enter Location" class="form-control" value="<%= post.location %>">
+            </div>
+        </div>
+        <br><br>
+        <br>
+        <button class="black-btn">Edit</button>
+</body>
+<script src="/js/form.js"></script>

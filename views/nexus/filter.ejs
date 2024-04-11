@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <div class="row mt-3">
+        <h1><%= category %>:</h1>
+        <% if(allNexus.length === 0){ %>
+            <h4 style="text-align: center;">Oops! There are no Nexus in <b><%= category %></b> at the moment :(</h4>
+        <% } %>
+        <% for(nexus of allNexus){ %>
+            <a class="nexus-card" style="width: 20rem; position: relative;" href="/nexus/<%= nexus._id %>">
+                <img src="<%= nexus.image.url %>" class="card-img-top" alt="Image">
+                <div class="card-img-overlay">
+                    <% if(nexus.rating){ %>
+                        <div class="displayRating">
+                            <% let ratingString = nexus.rating.toFixed(1).toString(); %>
+                            <p>
+                                <%= ratingString.endsWith('.0') ? ratingString.slice(0, -2) : ratingString %>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="card-body">
+                <p class="card-text"><b><%= nexus.title %></b><br>&#x20B9;<%= nexus.price.toLocaleString('en-IN') %>/night</p>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</body>

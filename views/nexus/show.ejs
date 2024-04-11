@@ -1,0 +1,103 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <script>
+        const mapToken = "<%= process.env.MAP_TOKEN %>";
+        const nexus = <%- JSON.stringify(nexus) %>;
+    </script>
+    <h3 class="mt-4"><i class="fa-solid fa-user" style="margin-right: 10px;"></i><%= nexus.owner.username %></h3>
+    <br>
+    <div class="row">
+        <div class="show-card">
+            <img class="show-img" style="display: flex; flex-wrap: wrap;" src="<%= nexus.image.url %>">
+            <br>
+            <h2><%= nexus.title %></h2>
+            <div class="mb-1"><%= nexus.description %></div>
+            <div class="mb-1">&#x20B9;<%= nexus.price.toLocaleString("en-IN") %></div>
+            <div class="mb-1"><%= nexus.location %></div>
+            <div class="mb-1"><%= nexus.country %></div>
+            <div class="mb-1">
+                <% if(nexus.rating){ %>
+                    <% for(let i = 1; i <= Math.floor(nexus.rating); i++){ %>
+                        <i class="fa-solid fa-star"></i>
+                    <% } %>
+                    <% if(nexus.rating.toFixed(1) > Math.floor(nexus.rating)){ %>
+                        <i class="fa-solid fa-star-half"></i>
+                    <% } %>
+                <% } %>
+            </div>
+            <br>
+        </div>
+        <% if(currUser && currUser._id.equals(nexus.owner._id)){ %>
+            <div class="edit-card">
+                <form method="GET" action="/nexus/<%= nexus._id %>/edit"><button style="margin-right: 50px;" class="white-btn">Edit</button></form>
+                <form method="POST" action="/nexus/<%= nexus._id %>?_method=DELETE"><button class="black-btn">Delete </button></form>
+            </div>
+        <% } %>
+        
+        <div class="reviews">
+            <% if(currUser){ %>
+                <hr>
+                <h3>Leave a Review</h3>
+                <form action="/nexus/<%= nexus._id %>/reviews" method="POST" novalidate class="needs-validation">
+                    <fieldset class="starability-fade mb-3 mt-3" required>
+                        <legend>Rating</legend>
+                        <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating."/>
+                        <input type="radio" id="first-rate1" name="review[rating]" value="1" required/>
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="review[rating]" value="2" required/>
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="review[rating]" value="3" required/>
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="review[rating]" value="4" required/>
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="review[rating]" value="5" required/>
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                        <div class="invalid-feedback">Please give Rating before Submitting.</div>
+                    </fieldset>
+                    <br>
+                    <div class="mb-3">
+                        <label for="review[comment]" class="form-label">Comment</label>
+                        <textarea name="review[comment]" class="form-control" cols="30" rows="3" placeholder="Add a comment..." required></textarea>
+                        <div class="invalid-feedback">Please write a comment before submitting.</div>
+                    </div>
+                    <br>
+                    <button class="black-btn" id='submit-btn'>Submit</button>
+                </form>
+            <% } %>
+            <hr>
+            <h4>Reviews</h4>
+            <div class="row">
+                <% if(!nexus.reviews  || nexus.reviews.length === 0){ %>
+                    <h5 style="text-align: center;">No reviews yet</h5>
+                    <p style="text-align: center;">Start the conversation.</p>
+                <% } %>
+                <% for(review of nexus.reviews){ %>
+                    <div class="review-card col-5">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3"><i class="fa-solid fa-user" style="margin-right: 10px;"></i><%= review.author.username %></h5>
+                            <p class="card-text"><%= review.comment %></i></p>
+                            <div class="two-divs">
+                                <p class="card-text">
+                                    <% for(let i = 1; i <= review.rating; i++){%>   
+                                        <i class="fa-solid fa-star"></i>
+                                    <% } %>
+                                </p>
+                                <% if(currUser && currUser._id.equals(review.author._id)){ %>
+                                    <form action="/nexus/<%= nexus._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                                        <button class="white-btn">Delete</button>
+                                    </form>
+                                <% } %>
+                            </div>
+                          </div>
+                    </div>
+                <% } %>
+            </div> 
+        </div>
+        <hr>
+        <div class="mb-3" style="z-index: 4;">
+            <h4>Where You'll be</h4>
+            <div class="col-5 offset-3 mb-3 mt-3" id="map"></div>
+        </div>
+    </div>
+    <script src="/js/map.js"></script>
+</body>

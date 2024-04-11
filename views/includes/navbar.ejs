@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top navi">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/nexus"><i class="fa-solid fa-compass"></i></a>
+    <button
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse">
+      <i class="fa-solid fa-bars" style="color: azure;" class="navbar-toggler-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/nexus">Explore</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" action="/nexus/search" role="search" method="GET">
+          <input id="searchInput" class="me-2 search-bar" name="query" type="search" placeholder="Search Nexus" aria-label="Search">
+          <button  class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i><b>Search</b></button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/nexus/new">Create Nexus</a>
+          <% if(!currUser){ %>
+            <a class="nav-link active" aria-current="page" href="/signup"><i class="fa-solid fa-user" style="margin-right: 3px"></i><b>Sign up</b></a>
+            <a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i><b>Log in</b></a>
+          <% } else{ %>
+            <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i><b>Log out</b></a>
+          <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

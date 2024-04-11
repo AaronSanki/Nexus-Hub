@@ -1,0 +1,208 @@
+body{
+    background-color: #0D1117 !important;
+    color: azure !important;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+a{
+    text-decoration: none !important;
+    color: azure !important;
+}
+.navbar{
+    background-color: #202020 !important;
+    color: azure !important;
+    height: 5rem;
+    font-size: 1.3rem;
+}
+.navbar-toggler-icon{
+    color: azure !important;
+}
+.fa-compass{
+    font-size: 2rem;
+}
+.f-info-links{
+    text-decoration: none;
+    color: black;
+}
+.f-info{
+    text-align: center;
+    height: 120px;
+}
+.f-info-socials{
+    font-size: 20px;
+}
+.translucent{
+    opacity: .7;
+}
+.translucent:hover{
+    opacity: 1;
+    transition: ease-in .1s;
+    cursor: pointer;
+}
+.f-element{
+    margin: 15px;
+}
+.fa-brands{
+    margin-right: 15px;
+}
+footer{
+    background-color: #202020 !important;
+    z-index: 1;
+}
+.nav-link{
+    margin-right: 15px;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.nexus-card{
+    background-color: #0D1117 !important;
+    color: azure;
+    margin: .3rem;
+    text-align: center;
+    border: none;
+}
+.nexus-card:hover {
+    opacity: 0.7;
+    background-color: #0D1117;
+    cursor: pointer;
+}
+.card-img-top{
+    border-radius: 1rem;
+    width: 100%;
+    height: 20rem;
+}
+.displayRating{
+    background-color: #202020c4;
+    color: azure;
+    border-radius: 1rem;
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    padding: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.black-btn{
+    background-color: #202020 !important;
+    border-radius: 10px !important;
+    color: azure;
+}
+.white-btn{
+    background-color: azure !important;
+    border-radius: 10px !important;
+    color: #202020;
+}
+.price-country{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.show-img{
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+}
+.edit-card{
+    display: flex;
+}
+.review-card{
+    background-color: #2020207c;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.two-divs{
+    display: flex;
+    justify-content: space-between;
+}
+.signup{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 2px rgba(255, 255, 255, .2);
+    padding: 1rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(20px);
+    width: 30rem;
+}
+.signup-page{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background-color: #f0f0f0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://wallpapercave.com/wp/wp12610860.jpg") no-repeat;
+    background-size: cover; 
+    background-position: center;
+    z-index: 2;
+}
+#map {
+    height: 500px;
+    width: 80vh;
+    border-radius: 1rem;
+}
+.category{
+    display: flex;
+    flex-direction: column;
+}
+.btn-secondary{
+    background-color: white;
+    color: #202020;
+}
+#filters{
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter{
+    text-align: center;
+    margin-right: 1rem;
+    margin-top: 2.2rem;
+    font-size: 1.2rem;
+}
+.tax-toggle{
+    padding: 1.5rem;
+    border: solid 2px #202020;
+    border-radius: 1rem;
+}
+.btn-search{
+    background-color: azure;
+    border: solid 2px #0D1117;
+    color: #0D1117;
+}
+.btn-search:hover{
+    background-color: azure;
+    border: solid 2px #0D1117;
+    color: #0D1117;
+}
+.search-bar{
+    background-color: #0D1117;
+    padding: 0.3rem 2rem;
+    color: azure !important;
+    border: none;
+    border-radius: .5rem;
+}
+.search-bar::placeholder{
+    color: azure;
+    opacity: .7;
+    font-size: 1.1rem;
+}

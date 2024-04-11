@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <h1>Enter details:</h1>
+    <form method="POST" action="/nexus" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div>
+            <label for="nexus[title]" class="form-label">Title</label>
+            <input type="text" name="nexus[title]" placeholder="Enter Title" class="form-control" required>
+        </div>
+        <br><br>
+        <div>
+            <label for="nexus[description]" class="form-label">Description</label>
+            <textarea type="text" name="nexus[description]" placeholder="Enter description" class="form-control" required></textarea></div>
+        <br><br>
+        <div>
+            <label for="nexus[image][url]" class="form-label">Image</label>
+            <input type="file" name="nexus[image][url]" placeholder="Upload Image (Optional)" class="form-control" required>
+        </div> 
+        <br><br>
+        <div class="price-country">
+            <div>
+                <label for="nexus[price]" class="form-label">Price</label>
+                <input type="number" name="nexus[price]" placeholder="Enter Price" class="form-control" required>
+            </div>
+            <div style="width: 1000px;">
+                <label for="nexus[country]" class="form-label">Country</label>
+                <input type="text" name="nexus[country]" placeholder="Enter Country" class="form-control" required>
+            </div>
+        </div>
+        <br><br>
+        <div class="price-country">
+            <div class="category">
+                <label for="nexus[category]" class="form-label">Category</label>
+                <div class="dropdown" name="nexus[category]" class="form-control">
+                    <button class="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false" syle="background-color: #202020 !important; color: azure !important;">
+                      select category
+                    </button>
+                    <ul class="dropdown-menu">
+                        <% const categories = ["Rooms", "Mountains", "Beach", "Resort", "Camping", "Hiking", "Farm", "Arctic", "Sailing"]; %>
+                        <% categories.forEach((category) => { %>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="nexus[category]" type="checkbox" value="<%= category %>">
+                                    <label class="form-check-label" for="nexus[category]">
+                                        <%= category %>
+                                    </label>
+                                </div>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+            <div style="width: 1000px;">
+                <label for="nexus[location]" class="form-label">Location</label>
+                <input type="text" name="nexus[location]" placeholder="Enter Location" class="form-control" required>
+            </div>
+        </div>
+        <br><br>
+        <br>
+        <button class="black-btn">Create</button>
+    </form>
+</body>

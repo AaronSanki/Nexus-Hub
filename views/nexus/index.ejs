@@ -1,0 +1,145 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <div id="filters" style="justify-content: space-between; align-items: center;">
+        <div>
+            <a href="#" class="filter" id="prevFilters">
+                <i class="fa-solid fa-angles-left"></i>
+                <p>Previous</p>
+            </a>
+            <a href="nexus/filters?q=Trending" class="filter translucent">
+                <i class="fa-solid fa-fire"></i>
+                <p>Trending</p>
+            </a>
+            <a href="nexus/filters?q=Rooms" class="filter translucent">
+                <i class="fa-solid fa-door-open"></i>
+                <p>Rooms</p>
+            </a>
+            <a href="nexus/filters?q=Mountains" class="filter translucent">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <p>Mountains</p>
+            </a>
+            <a href="nexus/filters?q=Beach" class="filter translucent">
+                <i class="fa-solid fa-person-swimming"></i>
+                <p>Beach</p>
+            </a>
+            <a href="nexus/filters?q=Resort" class="filter translucent">
+                    <i class="fa-solid fa-hotel"></i>
+                    <p>Resort</p>
+            </a>
+            <a href= "nexus/filters?q=Camping" class="filter translucent">
+                <i class="fa-solid fa-tent"></i>
+                <p>Camping</p>
+            </a>
+            <a href="nexus/filters?q=Hiking" class="filter translucent">
+                <i class="fa-solid fa-person-hiking"></i>
+                <p>Hiking</p>
+            </a>
+            <a href="nexus/filters?q=Farm" class="filter translucent">
+                <i class="fa-solid fa-wheat-awn"></i>
+                <p>Farm</p>
+            </a>
+            <a href="nexus/filters?q=Arctic" class="filter translucent">
+                <i class="fa-regular fa-snowflake"></i>
+                <p>Arctic</p>
+            </a>
+            <a href="nexus/filters?q=Sailing" class="filter translucent">
+                <i class="fa-solid fa-sailboat"></i>
+                <p>Sailing</p>
+            </a>
+            <a href="#" class="filter" id="nextFilters">
+                <i class="fa-solid fa-angles-right"></i>
+                <p>Next</p>
+            </a>
+        </div>
+        <div class="tax-toggle">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display total after Taxes</label>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <% for(nexus of allNexus){ %>
+            <a class="nexus-card" style="width: 20rem; position: relative;" href="/nexus/<%= nexus._id %>">
+                <img src="<%= nexus.image.url %>" class="card-img-top" alt="Image">
+                <div class="card-img-overlay">
+                    <% if(nexus.rating){ %>
+                        <div class="displayRating">
+                            <% let ratingString = nexus.rating.toFixed(1).toString(); %>
+                            <p>
+                                <%= ratingString.endsWith('.0') ? ratingString.slice(0, -2) : ratingString %>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="card-body">
+                <p class="card-text"><b><%= nexus.title %></b><br>&#x20B9;<%= nexus.price.toLocaleString('en-IN') %>/night
+                    <i class="tax-info" style="display: none; color: white">&nbsp; &nbsp; +18% GST</i>
+                </p>
+                </div>
+            </a>
+        <% } %>
+    </div>
+    <style>
+        .filter {
+            display: none;
+            transition: opacity 0.3s ease; /* Add transition for opacity */
+        }
+    </style>
+    <script>
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     const filters = document.querySelectorAll('.filter.translucent');
+        //     const nextButton = document.getElementById('nextFilters');
+        //     const prevButton = document.getElementById('prevFilters');
+        //     const filtersToShow = 4;
+        //     // if(width )
+        //     let startIndex = 0;
+    
+        //     function updateFilterVisibility() {
+        //         for (let i = 0; i < filters.length; i++) {
+        //             if (i >= startIndex && i < startIndex + filtersToShow) {
+        //                 filters[i].style.display = 'inline-block'; // Display filters in the range
+        //             } else {
+        //                 filters[i].style.display = 'none'; // Hide filters outside the range
+        //             }
+        //         }
+        //     }
+    
+        //     function updateButtonVisibility() {
+        //         prevButton.style.display = startIndex === 0 ? 'none' : 'inline-block'; // Show or hide previous button based on startIndex
+        //         nextButton.style.display = startIndex + filtersToShow >= filters.length ? 'none' : 'inline-block'; // Show or hide next button based on startIndex
+        //     }
+    
+        //     nextButton.addEventListener('click', function() {
+        //         startIndex += 1;
+        //         updateFilterVisibility();
+        //         updateButtonVisibility();
+        //     });
+    
+        //     prevButton.addEventListener('click', function() {
+        //         startIndex -= 1;
+        //         updateFilterVisibility();
+        //         updateButtonVisibility();
+        //     });
+    
+        //     // Initially show the first set of filters
+        //     updateFilterVisibility();
+        //     updateButtonVisibility();
+        // });
+    </script>
+    <script>
+        // let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+        // taxSwitch.addEventListener("click", ()=>{
+        //     let taxInfo = document.getElementsByClassName("tax-info");
+        //     for(info of taxInfo){
+        //         if(info.style.display === "inline"){
+        //             info.style.display = "none";
+        //         }
+        //         else{
+        //             info.style.display = "inline";
+        //         }
+        //     }
+        // });
+    </script>
+</body>

@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') -%>
+<div class="row mt-3"> 
+    <h1>Search Results: </h1>
+    <% if(searchResults.length === 0){ %>
+        <h4 style="text-align: center;">Sorry! We couldn't find what you were Searching for :(</h4>
+    <% } %> 
+    <% for(nexus of searchResults){ %>
+        <a class="nexus-card" style="width: 20rem; position: relative;" href="/nexus/<%= ing._id %>">
+            <img src="<%= nexus.image.url %>" class="card-img-top" alt="Image">
+            <div class="card-img-overlay">
+                <% if(nexus.rating){ %>
+                    <div class="displayRating">
+                        <% let ratingString = nexus.rating.toFixed(1).toString(); %>
+                        <p>
+                            <%= ratingString.endsWith('.0') ? ratingString.slice(0, -2) : ratingString %>
+                            <i class="fa-solid fa-star"></i>
+                        </p>
+                    </div>
+                <% } %>
+            </div>
+            <div class="card-body">
+            <p class="card-text"><b><%= nexus.title %></b><br>&#x20B9;<%= nexus.price.toLocaleString('en-IN') %>/night
+                <i class="tax-info" style="display: none; color: white">&nbsp; &nbsp; +18% GST</i>
+            </p>
+            </div>
+        </a>
+    <% } %>
+</div>

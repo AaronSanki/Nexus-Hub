@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate') -%>
+<div class="signup-page">
+    <div class="row signup">
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <h1 style="color: #202020; text-align: center;">SIGN UP</h1>
+            <div class="m-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="text" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="m-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" id="username" class="form-control" required>
+            </div>
+            <div class="m-3"> 
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+            </div>
+            <div class="two-divs">
+                <button class="black-btn m-3">SignUp</button>
+                <p class="m-3">Already have an account?<a style="color: rgba(255, 0, 0, 0.716) !important; text-decoration: dashed !important;" href="/login">LogIn</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    document.querySelector('.navbar').style.display = 'none';
+</script>
