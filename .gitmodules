@@ -1,0 +1,3 @@
+[submodule "Nexus-Hub"]
+	path = Nexus-Hub
+	url = https://github.com/AaronSanki/Nexus-Hub.git

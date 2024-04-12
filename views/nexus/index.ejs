@@ -74,72 +74,11 @@
                     <% } %>
                 </div>
                 <div class="card-body">
-                <p class="card-text"><b><%= nexus.title %></b><br>&#x20B9;<%= nexus.price.toLocaleString('en-IN') %>/night
+                <p class="card-text price"><b><%= nexus.title %></b><br>&#x20B9;<%= nexus.price.toLocaleString('en-IN') %>/night
                     <i class="tax-info" style="display: none; color: white">&nbsp; &nbsp; +18% GST</i>
                 </p>
                 </div>
             </a>
         <% } %>
     </div>
-    <style>
-        .filter {
-            display: none;
-            transition: opacity 0.3s ease; /* Add transition for opacity */
-        }
-    </style>
-    <script>
-        // document.addEventListener("DOMContentLoaded", function() {
-        //     const filters = document.querySelectorAll('.filter.translucent');
-        //     const nextButton = document.getElementById('nextFilters');
-        //     const prevButton = document.getElementById('prevFilters');
-        //     const filtersToShow = 4;
-        //     // if(width )
-        //     let startIndex = 0;
-    
-        //     function updateFilterVisibility() {
-        //         for (let i = 0; i < filters.length; i++) {
-        //             if (i >= startIndex && i < startIndex + filtersToShow) {
-        //                 filters[i].style.display = 'inline-block'; // Display filters in the range
-        //             } else {
-        //                 filters[i].style.display = 'none'; // Hide filters outside the range
-        //             }
-        //         }
-        //     }
-    
-        //     function updateButtonVisibility() {
-        //         prevButton.style.display = startIndex === 0 ? 'none' : 'inline-block'; // Show or hide previous button based on startIndex
-        //         nextButton.style.display = startIndex + filtersToShow >= filters.length ? 'none' : 'inline-block'; // Show or hide next button based on startIndex
-        //     }
-    
-        //     nextButton.addEventListener('click', function() {
-        //         startIndex += 1;
-        //         updateFilterVisibility();
-        //         updateButtonVisibility();
-        //     });
-    
-        //     prevButton.addEventListener('click', function() {
-        //         startIndex -= 1;
-        //         updateFilterVisibility();
-        //         updateButtonVisibility();
-        //     });
-    
-        //     // Initially show the first set of filters
-        //     updateFilterVisibility();
-        //     updateButtonVisibility();
-        // });
-    </script>
-    <script>
-        // let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-        // taxSwitch.addEventListener("click", ()=>{
-        //     let taxInfo = document.getElementsByClassName("tax-info");
-        //     for(info of taxInfo){
-        //         if(info.style.display === "inline"){
-        //             info.style.display = "none";
-        //         }
-        //         else{
-        //             info.style.display = "inline";
-        //         }
-        //     }
-        // });
-    </script>
 </body>

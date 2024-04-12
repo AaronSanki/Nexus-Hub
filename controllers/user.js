@@ -25,7 +25,7 @@ module.exports.renderLoginForm = async (req, res)=>{
     res.render("../views/users/login.ejs");
 }
 module.exports.login = async (req, res)=>{
-    req.flash("success", "Welcome back to WanderLust");
+    req.flash("success", "Welcome back to Nexus Hub");
     res.redirect(res.locals.redirectUrl || "/nexus");
 }
 module.exports.logout = (req, res, next)=>{

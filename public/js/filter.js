@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const filters = document.querySelectorAll('.filter.translucent');
     const nextButton = document.getElementById('nextFilters');
     const prevButton = document.getElementById('prevFilters');
-    const filtersToShow = 4;
+    const filtersToShow = window.innerWidth <= 460 ? 3 : 4;
     let startIndex = 0;
 
     function updateFilterVisibility() {

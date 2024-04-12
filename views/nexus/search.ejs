@@ -5,7 +5,7 @@
         <h4 style="text-align: center;">Sorry! We couldn't find what you were Searching for :(</h4>
     <% } %> 
     <% for(nexus of searchResults){ %>
-        <a class="nexus-card" style="width: 20rem; position: relative;" href="/nexus/<%= ing._id %>">
+        <a class="nexus-card" style="width: 20rem; position: relative;" href="/nexus/<%= nexus._id %>">
             <img src="<%= nexus.image.url %>" class="card-img-top" alt="Image">
             <div class="card-img-overlay">
                 <% if(nexus.rating){ %>

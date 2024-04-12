@@ -66,7 +66,7 @@
             <% } %>
             <hr>
             <h4>Reviews</h4>
-            <div class="row">
+            <div class="row" style="flex-wrap: wrap;">
                 <% if(!nexus.reviews  || nexus.reviews.length === 0){ %>
                     <h5 style="text-align: center;">No reviews yet</h5>
                     <p style="text-align: center;">Start the conversation.</p>
@@ -94,9 +94,9 @@
             </div> 
         </div>
         <hr>
-        <div class="mb-3" style="z-index: 4;">
+        <div class="mb-3" style=" text-align: center; z-index: 4;">
             <h4>Where You'll be</h4>
-            <div class="col-5 offset-3 mb-3 mt-3" id="map"></div>
+            <div class="mb-3 mt-3" id="map"></div>
         </div>
     </div>
     <script src="/js/map.js"></script>
